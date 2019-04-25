@@ -111,6 +111,7 @@ Patch45: php-7.2.3-ldap_r.patch
 Patch46: php-7.2.4-fixheader.patch
 # drop "Configure command" from phpinfo output
 Patch47: php-5.6.3-phpinfo.patch
+Patch49: php-7.1.0-curltls.patch
 
 # Upstream fixes (100+)
 Patch100: php-upstream.patch
@@ -871,6 +872,9 @@ low-level PHP extension for the libsodium cryptographic library.
 %endif
 %patch46 -p1 -b .fixheader
 %patch47 -p1 -b .phpinfo
+%if 0%{?rhel}
+%patch49 -p1 -b .curltls
+%endif
 
 # upstream patches
 %patch100 -p1 -b .up
@@ -1734,6 +1738,7 @@ exit 0
 - Move httpd module to a mod_php subpackage
 - Add fpm-nginx and fpm-httpd subpackages
 - Use bundled PCRE
+- Add patch49 to enable TLS 1.1/1.2 support
 
 * Tue Apr  2 2019 Remi Collet <remi@remirepo.net> - 7.3.4-1
 - Update to 7.3.4 - http://www.php.net/releases/7_3_4.php
