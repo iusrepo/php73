@@ -50,6 +50,7 @@
 %global with_pspell   1
 %global with_lmdb     1
 %global with_libgd    1
+%global with_libpcre  1
 %else
 %global with_zts      0
 %global with_firebird 0
@@ -59,6 +60,7 @@
 %global with_pspell   0
 %global with_lmdb     0
 %global with_libgd    0
+%global with_libpcre  0
 %endif
 
 Summary: PHP scripting language for creating dynamic web sites
@@ -125,7 +127,11 @@ BuildRequires: pam-devel
 BuildRequires: libstdc++-devel, openssl-devel
 BuildRequires: sqlite-devel >= 3.6.0
 BuildRequires: zlib-devel, smtpdaemon, libedit-devel
+%if %{with_libpcre}
 BuildRequires: pcre2-devel >= 10.30
+%else
+Provides:      bundled(pcre2) = 10.32
+%endif
 BuildRequires: bzip2
 BuildRequires: perl-interpreter
 BuildRequires: autoconf
@@ -319,7 +325,9 @@ Requires: libargon2-devel%{?_isa}
 Requires: libedit-devel%{?_isa}
 Requires: libxml2-devel%{?_isa}
 Requires: openssl-devel%{?_isa}
+%if %{with_libpcre}
 Requires: pcre2-devel%{?_isa}
+%endif
 Requires: zlib-devel%{?_isa}
 %if %{with_zts}
 Provides: php-zts-devel = %{version}-%{release}
@@ -1026,7 +1034,9 @@ ln -sf ../configure
     --with-jpeg-dir=%{_prefix} \
     --with-openssl \
     --with-system-ciphers \
+%if %{with_libpcre}
     --with-pcre-regex=%{_prefix} \
+%endif
 %ifarch s390 s390x sparc64 sparcv9 riscv64
     --without-pcre-jit \
 %endif
@@ -1723,6 +1733,7 @@ exit 0
 - Initial port from Fedora to IUS
 - Move httpd module to a mod_php subpackage
 - Add fpm-nginx and fpm-httpd subpackages
+- Use bundled PCRE
 
 * Tue Apr  2 2019 Remi Collet <remi@remirepo.net> - 7.3.4-1
 - Update to 7.3.4 - http://www.php.net/releases/7_3_4.php
