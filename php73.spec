@@ -1404,7 +1404,7 @@ install -m 700 -d $RPM_BUILD_ROOT%{_sharedstatedir}/php/fpm/session
 install -m 700 -d $RPM_BUILD_ROOT%{_sharedstatedir}/php/fpm/wsdlcache
 install -m 700 -d $RPM_BUILD_ROOT%{_sharedstatedir}/php/fpm/opcache
 # Log
-install -m 755 -d $RPM_BUILD_ROOT%{_localstatedir}/log/php-fpm
+install -m 750 -d $RPM_BUILD_ROOT%{_localstatedir}/log/php-fpm
 install -m 755 -d $RPM_BUILD_ROOT/run/php-fpm
 # Config
 install -m 755 -d $RPM_BUILD_ROOT%{_sysconfdir}/php-fpm.d
@@ -1651,7 +1651,7 @@ exit 0
 %{_sbindir}/php-fpm
 %dir %{_sysconfdir}/systemd/system/php-fpm.service.d
 %dir %{_sysconfdir}/php-fpm.d
-%attr(770,php-fpm,php-fpm) %dir %{_localstatedir}/log/php-fpm
+%attr(750,php-fpm,php-fpm) %dir %{_localstatedir}/log/php-fpm
 %dir %ghost /run/php-fpm
 %{_mandir}/man8/php-fpm.8*
 %dir %{_datadir}/fpm
@@ -1739,6 +1739,7 @@ exit 0
 - Add fpm-nginx and fpm-httpd subpackages
 - Use bundled PCRE
 - Add patch49 to enable TLS 1.1/1.2 support
+- Keep logrotate happy by removing group write permission from /var/log/php-fpm
 
 * Tue Apr  2 2019 Remi Collet <remi@remirepo.net> - 7.3.4-1
 - Update to 7.3.4 - http://www.php.net/releases/7_3_4.php
