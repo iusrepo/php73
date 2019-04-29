@@ -39,7 +39,7 @@
 
 %global with_argon2   1
 %global with_dtrace   1
-%global with_zip      0
+%global with_zip      1
 %global with_libzip   0
 %if 0%{?fedora}
 %global with_zts      1
@@ -66,7 +66,7 @@
 Summary: PHP scripting language for creating dynamic web sites
 Name: php73
 Version: 7.3.4
-Release: 2%{?dist}
+Release: 3%{?dist}
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
 # TSRM is licensed under BSD
@@ -1134,6 +1134,8 @@ build --libdir=%{_libdir}/php \
       --enable-zip=shared \
 %if %{with_libzip}
       --with-libzip \
+%else
+      --without-libzip \
 %endif
 %endif
       --without-readline \
@@ -1276,6 +1278,8 @@ build --includedir=%{_includedir}/php-zts \
       --enable-zip=shared \
 %if %{with_libzip}
       --with-libzip \
+%else
+      --without-libzip \
 %endif
 %endif
       --without-readline \
@@ -1733,6 +1737,9 @@ exit 0
 
 
 %changelog
+* Mon Apr 29 2019 Matt Linscott <matt.linscott@gmail.com> - 7.3.4-3
+- Enable zip extension using bundled libzip
+
 * Wed Apr 17 2019 Matt Linscott <matt.linscott@gmail.com> - 7.3.4-2
 - Initial port from Fedora to IUS
 - Move httpd module to a mod_php subpackage
