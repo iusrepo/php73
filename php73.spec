@@ -65,8 +65,8 @@
 
 Summary: PHP scripting language for creating dynamic web sites
 Name: php73
-Version: 7.3.4
-Release: 3%{?dist}
+Version: 7.3.5
+Release: 1%{?dist}
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
 # TSRM is licensed under BSD
@@ -114,7 +114,6 @@ Patch47: php-5.6.3-phpinfo.patch
 Patch49: php-7.1.0-curltls.patch
 
 # Upstream fixes (100+)
-Patch100: php-upstream.patch
 
 # Security fixes (200+)
 
@@ -877,7 +876,6 @@ low-level PHP extension for the libsodium cryptographic library.
 %endif
 
 # upstream patches
-%patch100 -p1 -b .up
 
 # security patches
 
@@ -1737,6 +1735,9 @@ exit 0
 
 
 %changelog
+* Thu May 02 2019 Carl George <carl@george.computer> - 7.3.5-1
+- Latest upstream
+
 * Mon Apr 29 2019 Matt Linscott <matt.linscott@gmail.com> - 7.3.4-3
 - Enable zip extension using bundled libzip
 
