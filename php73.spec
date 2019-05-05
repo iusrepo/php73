@@ -1745,6 +1745,7 @@ exit 0
 %changelog
 * Sun May 05 2019 Carl George <carl@george.computer> - 7.3.5-2
 - Own PECL directories
+- Define %%pecl_xmldir
 
 * Thu May 02 2019 Carl George <carl@george.computer> - 7.3.5-1
 - Latest upstream
