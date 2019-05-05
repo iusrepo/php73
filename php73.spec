@@ -66,7 +66,7 @@
 Summary: PHP scripting language for creating dynamic web sites
 Name: php73
 Version: 7.3.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
 # TSRM is licensed under BSD
@@ -1395,10 +1395,14 @@ install -m 755 -d $RPM_BUILD_ROOT%{_sysconfdir}/php.d
 install -m 755 -d $RPM_BUILD_ROOT%{_sysconfdir}/php-zts.d
 %endif
 install -m 755 -d $RPM_BUILD_ROOT%{_sharedstatedir}/php
+install -m 755 -d $RPM_BUILD_ROOT%{_sharedstatedir}/php/peclxml
 install -m 700 -d $RPM_BUILD_ROOT%{_sharedstatedir}/php/mod_php
 install -m 700 -d $RPM_BUILD_ROOT%{_sharedstatedir}/php/mod_php/session
 install -m 700 -d $RPM_BUILD_ROOT%{_sharedstatedir}/php/mod_php/wsdlcache
 install -m 700 -d $RPM_BUILD_ROOT%{_sharedstatedir}/php/mod_php/opcache
+
+install -m 755 -d $RPM_BUILD_ROOT%{_docdir}/pecl
+install -m 755 -d $RPM_BUILD_ROOT%{_datadir}/tests/pecl
 
 # PHP-FPM stuff
 install -m 700 -d $RPM_BUILD_ROOT%{_sharedstatedir}/php/fpm
@@ -1610,7 +1614,11 @@ exit 0
 %dir %{_libdir}/php-zts/modules
 %endif
 %dir %{_sharedstatedir}/php
+%dir %{_sharedstatedir}/php/peclxml
 %dir %{_datadir}/php
+%dir %{_docdir}/pecl
+%dir %{_datadir}/tests
+%dir %{_datadir}/tests/pecl
 
 %files cli
 %{_bindir}/php
@@ -1735,6 +1743,9 @@ exit 0
 
 
 %changelog
+* Sun May 05 2019 Carl George <carl@george.computer> - 7.3.5-2
+- Own PECL directories
+
 * Thu May 02 2019 Carl George <carl@george.computer> - 7.3.5-1
 - Latest upstream
 
