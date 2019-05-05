@@ -40,11 +40,11 @@
 %global with_argon2   1
 %global with_dtrace   1
 %global with_zip      1
+%global with_imap     1
 %global with_libzip   0
 %if 0%{?fedora}
 %global with_zts      1
 %global with_firebird 1
-%global with_imap     1
 %global with_freetds  1
 %global with_sodium   1
 %global with_pspell   1
@@ -54,7 +54,6 @@
 %else
 %global with_zts      0
 %global with_firebird 0
-%global with_imap     0
 %global with_freetds  0
 %global with_sodium   0
 %global with_pspell   0
