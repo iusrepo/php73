@@ -40,11 +40,11 @@
 %global with_argon2   1
 %global with_dtrace   1
 %global with_zip      1
+%global with_imap     1
 %global with_libzip   0
 %if 0%{?fedora}
 %global with_zts      1
 %global with_firebird 1
-%global with_imap     1
 %global with_freetds  1
 %global with_sodium   1
 %global with_pspell   1
@@ -54,7 +54,6 @@
 %else
 %global with_zts      0
 %global with_firebird 0
-%global with_imap     0
 %global with_freetds  0
 %global with_sodium   0
 %global with_pspell   0
@@ -66,7 +65,7 @@
 Summary: PHP scripting language for creating dynamic web sites
 Name: php73
 Version: 7.3.5
-Release: 2%{?dist}
+Release: 3%{?dist}
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
 # TSRM is licensed under BSD
@@ -1743,6 +1742,9 @@ exit 0
 
 
 %changelog
+* Sun May 05 2019 Nicolas Ross <nicolas@cybercat.ca> - 7.3.5-3
+- Changed with_imap to 1
+
 * Sun May 05 2019 Carl George <carl@george.computer> - 7.3.5-2
 - Own PECL directories
 - Define %%pecl_xmldir
