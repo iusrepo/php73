@@ -41,10 +41,10 @@
 %global with_dtrace   1
 %global with_zip      1
 %global with_imap     1
+%global with_firebird 1
 %global with_libzip   0
 %if 0%{?fedora}
 %global with_zts      1
-%global with_firebird 1
 %global with_freetds  1
 %global with_sodium   1
 %global with_pspell   1
@@ -53,7 +53,6 @@
 %global with_libpcre  1
 %else
 %global with_zts      0
-%global with_firebird 0
 %global with_freetds  0
 %global with_sodium   0
 %global with_pspell   0
@@ -65,7 +64,7 @@
 Summary: PHP scripting language for creating dynamic web sites
 Name: php73
 Version: 7.3.5
-Release: 3%{?dist}
+Release: 4%{?dist}
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
 # TSRM is licensed under BSD
@@ -1742,6 +1741,9 @@ exit 0
 
 
 %changelog
+* Wed May 29 2019 Andreas Schnederle-Wagner <schnederle@futureweb.at> - 7.3.5-4
+- Changed with_firebird to 1
+
 * Sun May 05 2019 Nicolas Ross <nicolas@cybercat.ca> - 7.3.5-3
 - Changed with_imap to 1
 
