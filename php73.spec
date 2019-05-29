@@ -1741,7 +1741,7 @@ exit 0
 
 
 %changelog
-* Fri May 29 2019 Andreas Schnederle-Wagner <schnederle@futureweb.at> - 7.3.5-4
+* Wed May 29 2019 Andreas Schnederle-Wagner <schnederle@futureweb.at> - 7.3.5-4
 - Changed with_firebird to 1
 
 * Sun May 05 2019 Nicolas Ross <nicolas@cybercat.ca> - 7.3.5-3
