@@ -37,25 +37,24 @@
 # needed at srpm build time, when httpd-devel not yet installed
 %{!?_httpd_mmn:        %{expand: %%global _httpd_mmn        %%(cat %{_includedir}/httpd/.mmn 2>/dev/null || echo 0-0)}}
 
-%global with_argon2   1
-%global with_dtrace   1
-%global with_zip      1
-%global with_imap     1
+# subpackages
 %global with_firebird 1
-%global with_libzip   0
-%if 0%{?fedora}
-%global with_zts      1
 %global with_freetds  1
 %global with_sodium   1
 %global with_pspell   1
-%global with_lmdb     1
+
+%global with_dtrace   1
+%global with_zip      1
+%global with_imap     1
+%global with_libzip   0
+%global with_argon2   1
+%if 0%{?fedora}
+%global with_zts      1
+%global with_lmdb     m
 %global with_libgd    1
 %global with_libpcre  1
 %else
 %global with_zts      0
-%global with_freetds  0
-%global with_sodium   0
-%global with_pspell   0
 %global with_lmdb     0
 %global with_libgd    0
 %global with_libpcre  0
@@ -1745,6 +1744,7 @@ exit 0
 %changelog
 * Thu May 30 2019 Carl George <carl@george.computer> - 7.3.6-1
 - Latest upstream
+- Enable pdo-dblib, sodium, and pspell subpackages
 
 * Wed May 29 2019 Andreas Schnederle-Wagner <schnederle@futureweb.at> - 7.3.5-4
 - Changed with_firebird to 1
