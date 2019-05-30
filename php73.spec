@@ -63,8 +63,8 @@
 
 Summary: PHP scripting language for creating dynamic web sites
 Name: php73
-Version: 7.3.5
-Release: 4%{?dist}
+Version: 7.3.6
+Release: 1%{?dist}
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
 # TSRM is licensed under BSD
@@ -319,7 +319,9 @@ Requires: gcc-c++
 Requires: libtool
 # see "php-config --libs"
 Requires: krb5-devel%{?_isa}
+%if %{with_argon2}
 Requires: libargon2-devel%{?_isa}
+%endif
 Requires: libedit-devel%{?_isa}
 Requires: libxml2-devel%{?_isa}
 Requires: openssl-devel%{?_isa}
@@ -1741,6 +1743,9 @@ exit 0
 
 
 %changelog
+* Thu May 30 2019 Carl George <carl@george.computer> - 7.3.6-1
+- Latest upstream
+
 * Wed May 29 2019 Andreas Schnederle-Wagner <schnederle@futureweb.at> - 7.3.5-4
 - Changed with_firebird to 1
 
