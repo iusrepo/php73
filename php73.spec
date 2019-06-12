@@ -1081,6 +1081,7 @@ build --libdir=%{_libdir}/php \
       --with-gd=shared,%{_prefix} \
 %else
       --with-gd=shared \
+      --with-webp-dir=%{_prefix} \
 %endif
       --with-gmp=shared \
       --enable-calendar=shared \
@@ -1224,6 +1225,7 @@ build --includedir=%{_includedir}/php-zts \
       --with-gd=shared,%{_prefix} \
 %else
       --with-gd=shared \
+      --with-webp-dir=%{_prefix} \
 %endif
       --with-gmp=shared \
       --enable-calendar=shared \
@@ -1742,6 +1744,9 @@ exit 0
 
 
 %changelog
+* Wed Jun 12 2019 Andreas Schnederle-Wagner <schnederle@futureweb.at> - 7.3.6-2
+- Enable WebP support when using bundled GD
+
 * Thu May 30 2019 Carl George <carl@george.computer> - 7.3.6-1
 - Latest upstream
 - Enable pdo-dblib, sodium, and pspell subpackages
