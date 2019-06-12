@@ -1033,6 +1033,7 @@ ln -sf ../configure
     --with-xpm-dir=%{_prefix} \
     --without-gdbm \
     --with-jpeg-dir=%{_prefix} \
+    --with-webp-dir=%{_prefix} \
     --with-openssl \
     --with-system-ciphers \
 %if %{with_libpcre}
@@ -1742,6 +1743,9 @@ exit 0
 
 
 %changelog
+* Wed Jun 12 2019 Andreas Schnederle-Wagner <schnederle@futureweb.at> - 7.3.6-2
+- Enable GD webp Support
+
 * Thu May 30 2019 Carl George <carl@george.computer> - 7.3.6-1
 - Latest upstream
 - Enable pdo-dblib, sodium, and pspell subpackages
