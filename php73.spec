@@ -62,8 +62,8 @@
 
 Summary: PHP scripting language for creating dynamic web sites
 Name: php73
-Version: 7.3.6
-Release: 2%{?dist}
+Version: 7.3.7
+Release: 1%{?dist}
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
 # TSRM is licensed under BSD
@@ -1744,6 +1744,9 @@ exit 0
 
 
 %changelog
+* Fri Jul 05 2019 Carl George <carl@george.computer> - 7.3.7-1
+- Latest upstream
+
 * Wed Jun 12 2019 Andreas Schnederle-Wagner <schnederle@futureweb.at> - 7.3.6-2
 - Enable WebP support when using bundled GD
 
