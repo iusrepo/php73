@@ -50,7 +50,7 @@
 %global with_argon2   1
 %if 0%{?fedora}
 %global with_zts      1
-%global with_lmdb     m
+%global with_lmdb     1
 %global with_libgd    1
 %global with_libpcre  1
 %else
