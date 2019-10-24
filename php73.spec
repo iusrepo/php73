@@ -62,7 +62,7 @@
 
 Summary: PHP scripting language for creating dynamic web sites
 Name: php73
-Version: 7.3.10
+Version: 7.3.11
 Release: 1%{?dist}
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
@@ -1744,6 +1744,9 @@ exit 0
 
 
 %changelog
+* Fri Oct 24 2019 Seth Ryder <seth@sethryder.com> - 7.3.11-1
+- Latest upstream
+
 * Fri Sep 27 2019 judd obannon <judd.obannon@rackspace.com> - 7.3.10-1
 - Latest upstream
 
