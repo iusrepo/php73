@@ -63,7 +63,7 @@
 Summary: PHP scripting language for creating dynamic web sites
 Name: php73
 Version: 7.3.18
-Release: 1%{?dist}
+Release: 2%{?dist}
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
 # TSRM is licensed under BSD
@@ -1744,6 +1744,9 @@ exit 0
 
 
 %changelog
+* Thu Jun 04 2020 Carl George <carl@george.computer> - 7.3.18-2
+- Rebuild for new oniguruma in EPEL
+
 * Fri May 15 2020 Chris Barnett <christopher_barnett@hotmail.co.uk> - 7.3.18-1
 - Latest upstream
 
