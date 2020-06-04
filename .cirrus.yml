@@ -3,8 +3,10 @@ task:
   env:
     RELEASEVER: 7
   name: el$RELEASEVER
+  timeout_in: 90m
   container:
     image: centos:$RELEASEVER
+    cpu: 4
   macros_script: |
     cat > $HOME/.rpmmacros << EOF
     %_sourcedir $PWD
