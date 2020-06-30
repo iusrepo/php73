@@ -63,7 +63,7 @@
 Summary: PHP scripting language for creating dynamic web sites
 Name: php73
 Version: 7.3.19
-Release: 2%{?dist}
+Release: 1%{?dist}
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
 # TSRM is licensed under BSD
